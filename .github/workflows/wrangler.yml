@@ -6,7 +6,6 @@ on:
     branches:
       - master
     paths-ignore:
-      - ".github/**"
       - ".vscode/**"
       - "LICENSE"
       - "README.md"
@@ -22,7 +21,7 @@ jobs:
       - name: Prepare node
         uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Install node packages
         run: npm ci --ignore-scripts
@@ -33,4 +32,4 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: deploy
-          wranglerVersion: "4.38.0"
+          wranglerVersion: "4.114.0"
